@@ -38,7 +38,13 @@ class Loja:
       self.preco = float(preco)
       self.produtos.append({'nome_produto': self.nome_produto, 'preco': self.preco})
       print(f'\nProduto adicionado!')
-    
+
+    def remover_produto(self, nome_produto, preco):
+      self.nome_produto = str(nome_produto).lower()
+      self.preco = float(preco)
+      self.produtos.remove({'nome_produto': self.nome_produto, 'preco': self.preco})
+      print(f'\nProduto removido!')
+
     def lista_clientes_do_pilates(self):
       print('\nLista de Clientes do Pilates')
       for item in self.pilates:
@@ -64,6 +70,9 @@ loja1.adicionar_novo_produto('Gengibre em pó', 40)
 loja1.lista_produtos()
 
 loja1.adicionar_novo_produto('Orégano em pó', 30)
+loja1.lista_produtos()
+
+loja1.remover_produto('Orégano em pó', 30)
 loja1.lista_produtos()
 
 loja1.exibir_funcionarios()
