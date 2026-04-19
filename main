@@ -1,0 +1,93 @@
+class Loja:
+    def __init__(self, nome_loja, cnpj, telefone, endereco):
+        self.nome_loja = nome_loja
+        self.cnpj = cnpj
+        self.telefone = telefone
+        self.endereco = endereco
+        self.produtos = []
+        self.funcionarios = []
+        self.pilates = []
+    
+    def exibir_loja(self):
+      print(f'Nome: {self.nome_loja} cnpj: {self.cnpj} \nTelefone: {self.telefone} endereço: {self.endereco}')
+    
+    def exibir_funcionarios(self):
+      print('\nLista de Funcionários')
+      for item in self.funcionarios:
+        print(f'Nome: {item["nome_funcionario"]}. Categoria: {item["categoria_funcionario"]}')
+
+    def adicionar_novo_funcionario(self, nome_funcionario, categoria_funcionario):
+      self.nome_funcionario = nome_funcionario
+      self.categoria_funcionario = categoria_funcionario
+      self.funcionarios.append({'nome_funcionario': self.nome_funcionario, 'categoria_funcionario': self.categoria_funcionario})
+      print(f'\nFuncionário adicionado!')
+
+    def remover_funcionario(self, nome_funcionario, categoria_funcionario):
+      self.nome_funcionario = nome_funcionario
+      self.categoria_funcionario = categoria_funcionario
+      self.funcionarios.remove({'nome_funcionario': self.nome_funcionario, 'categoria_funcionario': self.categoria_funcionario})
+      print(f'\nFuncionário removido!')
+
+    def lista_produtos(self):
+      print('\nLista de Produtos')
+      for item in self.produtos:
+        print(f'Nome: {item["nome_produto"]}. Preço: {item["preco"]}')
+
+    def adicionar_novo_produto(self, nome_produto, preco):
+      self.nome_produto = str(nome_produto).lower()
+      self.preco = float(preco)
+      self.produtos.append({'nome_produto': self.nome_produto, 'preco': self.preco})
+      print(f'\nProduto adicionado!')
+    
+    def lista_clientes_do_pilates(self):
+      print('\nLista de Clientes do Pilates')
+      for item in self.pilates:
+        print(f'Nome: {item["nome_cliente"]}')
+    
+    def adicionar_novo_cliente_pilates(self, nome_cliente):
+      self.nome_cliente = str(nome_cliente).lower()
+      self.pilates.append({'nome_cliente': self.nome_cliente})
+
+    def remover_cliente_do_pilates(self, nome_cliente):
+      self.nome_cliente = str(nome_cliente).lower()
+      self.pilates.remove({'nome_cliente': self.nome_cliente})
+
+      
+loja1 = Loja('Equilibrium', '123456789-10', '(88)98134-5083', 'Rua João Barbosa-237')
+loja1.exibir_loja()
+loja1.lista_produtos()
+
+loja1.adicionar_novo_produto('Canela em pó', 50)
+loja1.lista_produtos()
+
+loja1.adicionar_novo_produto('Gengibre em pó', 40)
+loja1.lista_produtos()
+
+loja1.adicionar_novo_produto('Orégano em pó', 30)
+loja1.lista_produtos()
+
+loja1.exibir_funcionarios()
+
+loja1.adicionar_novo_funcionario('Jaque', 'Vendedora')
+loja1.exibir_funcionarios()
+
+loja1.adicionar_novo_funcionario('Janieli', 'Fisioterapeuta')
+loja1.exibir_funcionarios()
+
+loja1.adicionar_novo_funcionario('Savana', 'Fisioterapeuta')
+loja1.exibir_funcionarios()
+
+loja1.remover_funcionario('Savana', 'Fisioterapeuta')
+loja1.exibir_funcionarios()
+
+loja1.adicionar_novo_cliente_pilates('Marta')
+loja1.lista_clientes_do_pilates()
+
+loja1.adicionar_novo_cliente_pilates('Luiz')
+loja1.lista_clientes_do_pilates()
+
+loja1.adicionar_novo_cliente_pilates('Geane')
+loja1.lista_clientes_do_pilates()
+
+loja1.remover_cliente_do_pilates('Luiz')
+loja1.lista_clientes_do_pilates()
